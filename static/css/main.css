@@ -1,53 +1,127 @@
-*{
-    font-family: sans-serif;
+/* --- Global Styles --- */
+* {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background-color: #f5f6fa;
+  color: #333;
+}
+
+/* --- Split Layout --- */
 .split {
   height: 100%;
   width: 50%;
   position: fixed;
-  z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
+  transition: 0.5s;
 }
-  
+
 .left {
   left: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .right {
   right: 0;
+  background-color: #f9fafc;
+  padding: 40px;
+  overflow-y: auto;
 }
 
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-  
+/* --- Image Styling --- */
 .centered img {
-  width: 100%;
+  width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-
+/* --- Form Area --- */
 textarea {
   width: 100%;
-  height: 100px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
+  height: 120px;
+  padding: 12px 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 15px;
   resize: none;
+  transition: border-color 0.3s;
 }
 
-.comments {
-  text-decoration: underline;
-  text-underline-position: under;
+textarea:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.2);
+}
+
+input[type="submit"] {
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 15px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0b5ed7;
+}
+
+/* --- Labels and Headings --- */
+label {
+  font-weight: 600;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* --- Review Section --- */
+.content-bottom-bg-white {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.commented-section {
+  margin-bottom: 15px;
+}
+
+.text-nowrap {
+  white-space: normal !important;
+  font-size: 15px;
+  color: #444;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 768px) {
+  .split {
+    width: 100%;
+    position: relative;
+  }
+
+  .left, .right {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .centered img {
+    width: 100%;
+  }
 }
